@@ -26,6 +26,7 @@
         <td class="text-xs-left">{{ props.item.description }}</td>
         <td class="text-xs-left">{{ props.item.asset_group }}</td>
         <td class="text-xs-left">{{ props.item.category }}</td>
+        <td class="text-xs-left">{{ props.item.owning_department }}</td>
         
       </template>
       <v-alert slot="no-results" :value="true" color="error" icon="warning">
@@ -73,6 +74,12 @@
             align: 'left',
             sortable: true,
             value: 'category'
+          },
+          {
+            text: 'Owning Department',
+            align: 'left',
+            sortable: true,
+            value: 'owning_department'
           }
         ],
         assets: []
@@ -89,7 +96,8 @@
                   asset_number,
                   description,
                   asset_group,
-                  category
+                  category,
+                  owning_department
                   &organization=H1`)
                 this.assets = response.data
                 this.loading = false
