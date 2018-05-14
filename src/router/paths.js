@@ -9,9 +9,19 @@ export default [
     // Relative to /src/views
     view: 'Home',
     meta: {
-      title: 'Vuetify Alpha',
-      description: 'Customized vue-cli templates for Vue and Vuetify',
-      keywords: 'vue, vuetify, vuetify templates, vuetify themes'
+      title: 'dr.EAM',
+      description: 'Advanced Oracle EAM UI',
+      keywords: 'Oracle, EAM, User Interface'
+    }
+  },
+  {
+    path: 'assets',
+    // Relative to /src/views
+    view: 'Assets',
+    meta: {
+      title: 'dr.EAM',
+      description: 'Advanced Oracle EAM UI',
+      keywords: 'Oracle, EAM, User Interface'
     }
   }
 ]

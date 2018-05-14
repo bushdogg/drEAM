@@ -24,16 +24,19 @@ sync(store, router)
 
 // Vuetify bootstrap
 Vue.use(Vuetify, { theme: {
-  primary: '#ee44aa',
-  secondary: '#424242',
-  accent: '#82B1FF',
-  error: '#FF5252',
-  info: '#2196F3',
-  success: '#4CAF50',
-  warning: '#FFC107'
+  primary: "#3F51B5",
+  secondary: "#9E9E9E",
+  accent: "#000000",
+  error: "#f44336",
+  warning: "#ffeb3b",
+  info: "#2196f3",
+  success: "#4caf50"
 }})
 
 Vue.prototype.$http = axios
+
+//Axios Defaults
+axios.defaults.baseURL = 'http://localhost:3000/api'
 
 // Load custom components
 for (const key in Components) {

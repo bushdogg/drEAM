@@ -2,8 +2,6 @@
   <v-app>
     <app-toolbar />
 
-    <app-drawer />
-
     <app-view />
 
     <app-footer />
