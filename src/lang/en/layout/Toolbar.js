@@ -2,19 +2,32 @@ export default {
   items: [
     {
       to: '/',
-      text: 'Home'
+      text: 'Home',
+      dropDown: []
     },
     {
       to: '/assets',
-      text: 'Assets'
+      text: 'Assets',
+      dropDown: []
     },
     {
       to: '/activities',
-      text: 'Activities'
+      text: 'Activities',
+      dropDown: []
+    },
+    {
+      to: '',
+      text: 'Configuration',
+      dropDown: [
+        {to: '/configuration',
+         text: 'Departments'
+        }
+      ]
     },
     {
       to: '/help',
-      text: 'Help'
+      text: 'Help',
+      dropDown: []
     }
   ]
 }

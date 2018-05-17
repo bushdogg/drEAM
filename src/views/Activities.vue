@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-card-title>
-      <div class="display-2 primary--text">Assets</div>
+      <div class="display-2 primary--text">activities</div>
       <v-spacer></v-spacer>
       <v-text-field
         v-model="search"
@@ -13,9 +13,9 @@
     </v-card-title>
     <v-data-table
       :headers="headers"
-      :items="assets"
+      :items="activities"
       :pagination.sync="pagination"
-      :total-items="totalAssets"
+      :total-items="totalactivities"
       :loading="loading"
       :search="search"
       class="elevation-1 ma-2"
@@ -23,11 +23,8 @@
       <v-progress-linear v-if="loading" slot="progress" color="blue" indeterminate></v-progress-linear>
       <template slot="items" slot-scope="props">
         <td>{{ props.item.organization }}</td>
-        <td class="text-xs-left">{{ props.item.asset_number }}</td>
+        <td class="text-xs-left">{{ props.item.activity }}</td>
         <td class="text-xs-left">{{ props.item.description }}</td>
-        <td class="text-xs-left">{{ props.item.asset_group }}</td>
-        <td class="text-xs-left">{{ props.item.category }}</td>
-        <td class="text-xs-left">{{ props.item.owning_department }}</td>
         
       </template>
       <v-alert slot="no-results" :value="true" color="error" icon="warning">
@@ -48,7 +45,7 @@
       return {
         search: '',
         loading: true,
-        totalAssets: 0,
+        totalactivities: 0,
         pagination: {},
         headers: [
           {
@@ -58,37 +55,19 @@
             value: 'organization'
           },
           {
-            text: 'Asset Number',
+            text: 'Activity',
             align: 'left',
             sortable: true,
-            value: 'asset_number'
+            value: 'activity'
           },
           {
-            text: 'Asset Description',
+            text: 'Activity Description',
             align: 'left',
             sortable: true,
             value: 'description'
-          },
-          {
-            text: 'Asset Group',
-            align: 'left',
-            sortable: true,
-            value: 'asset_group'
-          },
-          {
-            text: 'Asset Category',
-            align: 'left',
-            sortable: true,
-            value: 'category'
-          },
-          {
-            text: 'Owning Department',
-            align: 'left',
-            sortable: true,
-            value: 'owning_department'
           }
         ],
-        assets: []
+        activities: []
       }
     },
     watch: {
@@ -96,8 +75,8 @@
         handler () {
           this.getDataFromApi()
             .then(data => {
-              this.assets = data.items
-              this.totalAssets = data.total
+              this.activities = data.items
+              this.totalactivities = data.total
             })
         },
         deep: true
@@ -107,22 +86,18 @@
         this.getData(),
         this.getDataFromApi()
           .then(data => {
-            this.assets = data.items
-            this.totalAssets = data.total
+            this.activities = data.items
+            this.totalactivities = data.total
           })
       },
       methods: {
         async getData() {
           try {
-                const response = await axios.get(`/assets?include=
+                const response = await axios.get(`/organizations/1645/activities?include=
                   organization,
-                  asset_number,
-                  description,
-                  asset_group,
-                  category,
-                  owning_department
-                  %organization=H1`)
-                this.assets = response.data
+                  activity,
+                  description`)
+                this.activities = response.data
                 this.loading = false
           } catch(e) {
             console.log(e)

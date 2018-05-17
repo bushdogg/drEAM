@@ -23,5 +23,25 @@ export default [
       description: 'Advanced Oracle EAM UI',
       keywords: 'Oracle, EAM, User Interface'
     }
+  },
+  {
+    path: 'activities',
+    // Relative to /src/views
+    view: 'Activities',
+    meta: {
+      title: 'dr.EAM',
+      description: 'Advanced Oracle EAM UI',
+      keywords: 'Oracle, EAM, User Interface'
+    }
+  },
+  {
+    path: 'configuration',
+    // Relative to /src/views
+    view: 'Configuration',
+    meta: {
+      title: 'dr.EAM',
+      description: 'Advanced Oracle EAM UI',
+      keywords: 'Oracle, EAM, User Interface'
+    }
   }
 ]

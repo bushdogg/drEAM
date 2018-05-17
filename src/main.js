@@ -37,6 +37,9 @@ Vue.prototype.$http = axios
 
 //Axios Defaults
 axios.defaults.baseURL = 'http://localhost:3000/api'
+// axios.defaults.baseURL = 'https://oracle-eam.herokuapp.com/api'
+
+// axios.defaults.baseURL = 'https://bushdogg-oeam-backend.herokuapp.com/'
 
 // Load custom components
 for (const key in Components) {
